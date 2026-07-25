@@ -1,0 +1,514 @@
+
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanuji Bihansa | Data Science Undergraduate & Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f19',
+                        darkCard: '#111827',
+                        lightBg: '#f8fafc',
+                        lightCard: '#ffffff',
+                        accent: '#3b82f6',
+                        accentHover: '#2563eb'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glass-card {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-lightBg text-slate-800 dark:bg-darkBg dark:text-slate-100 min-h-screen relative overflow-x-hidden">
+
+    <!-- Animated Canvas Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-darkBg/70 border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">
+                Sanuji Bihansa
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-blue-500 transition-colors">About</a>
+                <a href="#education" class="hover:text-blue-500 transition-colors">Education</a>
+                <a href="#interests" class="hover:text-blue-500 transition-colors">Interests</a>
+                <a href="#cv" class="hover:text-blue-500 transition-colors">CV & Resume</a>
+                <a href="#contact" class="hover:text-blue-500 transition-colors">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors focus:outline-none" aria-label="Toggle Theme">
+                    <i id="theme-icon" class="fa-solid fa-moon text-lg"></i>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 focus:outline-none">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 bg-white/95 dark:bg-darkCard/95 border-b border-slate-200 dark:border-slate-800">
+            <a href="#about" class="block py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
+            <a href="#education" class="block py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Education</a>
+            <a href="#interests" class="block py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Interests</a>
+            <a href="#cv" class="block py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">CV & Resume</a>
+            <a href="#contact" class="block py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+
+        <!-- Hero Section -->
+        <section id="about" class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center pt-8">
+            <div class="md:col-span-7 space-y-6">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-500 border border-blue-500/20 text-xs font-semibold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                    Data Science Undergraduate
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                    Hi, I'm <span class="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent">Sanuji Bihansa</span>
+                </h1>
+                <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                    A passionate undergraduate following a Data Science degree at the Faculty of Computing and IT, Sri Lanka Technology Campus (SLTC). Exploring the frontiers of Machine Learning, Artificial Intelligence, Business Analysis, and Cloud Computing.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#cv" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-lg shadow-blue-500/25 transition-all flex items-center space-x-2">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        <span>View & Download CV</span>
+                    </a>
+                    <a href="#contact" class="px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-all flex items-center space-x-2">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Get in Touch</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-5 pt-4 text-slate-500 dark:text-slate-400">
+                    <a href="https://github.com/sanuji-maker" target="_blank" class="hover:text-blue-500 text-xl transition-colors"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/sanuji-bihansa-0b7247308" target="_blank" class="hover:text-blue-500 text-xl transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:bisanuji@gmail.com" class="hover:text-blue-500 text-xl transition-colors"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="md:col-span-5 flex justify-center">
+                <div class="relative w-72 h-72 sm:w-80 sm:h-80 rounded-3xl bg-gradient-to-tr from-blue-600 to-indigo-500 p-1.5 shadow-2xl shadow-blue-500/20">
+                    <div class="w-full h-full rounded-[22px] bg-slate-900 flex items-center justify-center overflow-hidden relative group">
+                    <img src="photo.jpeg" alt="Sanuji Bihansa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/40 to-slate-900/80 z-10"></div>
+                        
+                        <div class="absolute bottom-4 z-20 text-center">
+                            <span class="text-xs uppercase tracking-widest text-blue-300 font-semibold">SLTC Undergraduate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="space-y-12">
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl font-bold tracking-tight">Education & Qualifications</h2>
+                <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">My academic background and specialized training paths.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card bg-white/70 dark:bg-darkCard/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xl relative overflow-hidden group hover:border-blue-500/50 transition-all">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all"></div>
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-blue-500">Current Degree</span>
+                    <h3 class="text-xl font-bold mt-1 mb-2">BSc (Hons) in Data Science</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">Faculty of Computing and IT<br>Sri Lanka Technology Campus (SLTC)</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">Focusing on core computing, advanced data analytics, statistical modeling, and modern AI algorithms.</p>
+                </div>
+
+                <div class="glass-card bg-white/70 dark:bg-darkCard/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xl relative overflow-hidden group hover:border-blue-500/50 transition-all">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-all"></div>
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-atom"></i>
+                    </div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-indigo-500">Secondary Education</span>
+                    <h3 class="text-xl font-bold mt-1 mb-2">G.E.C. Advanced Level</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">Physical Science Stream</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">Passed successfully with a solid foundation in Combined Mathematics, Physics, and Chemistry.</p>
+                </div>
+
+                <div class="glass-card bg-white/70 dark:bg-darkCard/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xl relative overflow-hidden group hover:border-blue-500/50 transition-all">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all"></div>
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-language"></i>
+                    </div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-purple-500">Professional Certificate</span>
+                    <h3 class="text-xl font-bold mt-1 mb-2">Advanced Diploma in English</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">The Beeline Campus</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">Enhanced professional communication, technical writing, and cross-cultural presentation abilities.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fields of Interest Section -->
+        <section id="interests" class="space-y-12">
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl font-bold tracking-tight">Fields of Interest & Expertise</h2>
+                <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Domains and technical areas I am enthusiastic about building my career in.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card bg-white/70 dark:bg-darkCard/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-lg flex items-start space-x-4">
+                    <div class="p-3 rounded-xl bg-blue-500/10 text-blue-500 text-xl"><i class="fa-solid fa-brain"></i></div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Machine Learning & AI</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Building predictive models, neural networks, and intelligent automated systems.</p>
+                    </div>
+                </div>
+                <div class="glass-card bg-white/70 dark:bg-darkCard/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-lg flex items-start space-x-4">
+                    <div class="p-3 rounded-xl bg-indigo-500/10 text-indigo-500 text-xl"><i class="fa-solid fa-chart-pie"></i></div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Data Analysis</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Extracting actionable insights from complex datasets using modern visualization and statistical tools.</p>
+                    </div>
+                </div>
+                <div class="glass-card bg-white/70 dark:bg-darkCard/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-lg flex items-start space-x-4">
+                    <div class="p-3 rounded-xl bg-purple-500/10 text-purple-500 text-xl"><i class="fa-solid fa-cloud"></i></div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Cloud Computing</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Deploying scalable applications and managing robust cloud infrastructures.</p>
+                    </div>
+                </div>
+                <div class="glass-card bg-white/70 dark:bg-darkCard/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-lg flex items-start space-x-4">
+                    <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-500 text-xl"><i class="fa-solid fa-briefcase"></i></div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Project Management</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Planning, organizing, and executing technical projects efficiently from conception to delivery.</p>
+                    </div>
+                </div>
+                <div class="glass-card bg-white/70 dark:bg-darkCard/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-lg flex items-start space-x-4 sm:col-span-2 lg:col-span-2">
+                    <div class="p-3 rounded-xl bg-amber-500/10 text-amber-500 text-xl"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-1">Business Analysis</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Bridging the gap between business needs and technological solutions through rigorous data-driven evaluation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CV & Resume Section -->
+        <section id="cv" class="space-y-12">
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl font-bold tracking-tight">Curriculum Vitae</h2>
+                <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Preview my professional background or download my complete resume.</p>
+            </div>
+            <div class="glass-card bg-white/70 dark:bg-darkCard/70 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="inline-flex items-center space-x-2 text-blue-500 font-semibold text-sm">
+                            <i class="fa-solid fa-file-lines"></i>
+                            <span>Sanuji Bihansa - Resume</span>
+                        </div>
+                        <h3 class="text-2xl font-bold">Ready to collaborate or hire?</h3>
+                        <p class="text-slate-600 dark:text-slate-300">
+                            My CV contains detailed descriptions of my academic projects, technical proficiencies in Python, data analysis tools, and leadership involvement.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a href="sanu.pdf" download="Sanuji_Bihansa_CV.pdf" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-lg shadow-blue-500/25 transition-all flex items-center space-x-2">
+                                <i class="fa-solid fa-download"></i>
+                                <span>Download PDF CV</span>
+                            </a>
+                            <a href="#contact" class="px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-all flex items-center space-x-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Contact Directly</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 bg-slate-100 dark:bg-slate-900/80 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 space-y-4">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
+                            <span class="font-bold text-sm">Quick Overview</span>
+                            <span class="text-xs text-blue-500 font-semibold px-2.5 py-1 rounded-full bg-blue-500/10">Updated 2026</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+                            <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-blue-500"></i><span>BSc Data Science Undergraduate (SLTC)</span></li>
+                            <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-blue-500"></i><span>Advanced Diploma in English (Beeline)</span></li>
+                            <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-blue-500"></i><span>Machine Learning & AI Enthusiast</span></li>
+                            <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-blue-500"></i><span>Strong Quantitative & Analytical Skills</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="space-y-12">
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl font-bold tracking-tight">Get In Touch</h2>
+                <p class="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Feel free to reach out for collaborations, projects, or professional inquiries.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <a href="mailto:bisanuji@gmail.com" class="glass-card bg-white/70 dark:bg-darkCard/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 text-center shadow-lg hover:border-blue-500 transition-all group">
+                    <div class="w-12 h-12 rounded-full bg-blue-500/10 text-blue-500 mx-auto flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-1">Email</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">bisanuji@gmail.com</p>
+                </a>
+                <a href="https://github.com/sanuji-maker" target="_blank" class="glass-card bg-white/70 dark:bg-darkCard/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 text-center shadow-lg hover:border-blue-500 transition-all group">
+                    <div class="w-12 h-12 rounded-full bg-blue-500/10 text-blue-500 mx-auto flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-1">GitHub</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">sanuji-maker</p>
+                </a>
+                <a href="https://www.linkedin.com/in/sanuji-bihansa-0b7247308" target="_blank" class="glass-card bg-white/70 dark:bg-darkCard/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 text-center shadow-lg hover:border-blue-500 transition-all group">
+                    <div class="w-12 h-12 rounded-full bg-blue-500/10 text-blue-500 mx-auto flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-1">LinkedIn</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Sanuji Bihansa</p>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-slate-200 dark:border-slate-800 mt-24 py-8 bg-white/50 dark:bg-darkBg/50 text-center text-sm text-slate-500 dark:text-slate-400">
+        <p>© 2026 Sanuji Bihansa. All rights reserved.</p>
+    </footer>
+
+    <!-- Interactive Chatbot Widget -->
+    <div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
+        <button id="chatbot-toggle-btn" class="w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-2xl flex items-center justify-center text-2xl transition-transform hover:scale-105 focus:outline-none">
+            <i class="fa-solid fa-robot"></i>
+        </button>
+
+        <div id="chatbot-window" class="hidden absolute bottom-20 right-0 w-80 sm:w-96 glass-card bg-white dark:bg-darkCard border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col h-[450px]">
+            <div class="bg-blue-600 text-white p-4 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                        <i class="fa-solid fa-robot text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Sanuji's AI Assistant</h4>
+                        <span class="text-xs text-blue-100 flex items-center"><span class="w-2 h-2 rounded-full bg-emerald-400 inline-block mr-1.5 animate-pulse"></span>Online</span>
+                    </div>
+                </div>
+                <button id="chatbot-close-btn" class="text-white/80 hover:text-white text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-sm">
+                <div class="flex items-start space-x-2">
+                    <div class="w-7 h-7 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-robot text-xs"></i>
+                    </div>
+                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-2xl rounded-tl-none text-slate-700 dark:text-slate-200 max-w-[80%]">
+                        Hello! I'm Sanuji Bihansa's virtual assistant. Ask me anything about her education, interests, or how to contact her!
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 border-t border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-darkCard/50 flex items-center space-x-2">
+                <input type="text" id="chat-input" placeholder="Type a message..." class="flex-1 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-blue-500">
+                <button id="chat-send-btn" class="bg-blue-600 hover:bg-blue-700 text-white w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript for Interactivity, Theme Toggle, Canvas Background & Chatbot -->
+    <script>
+        // --- Theme Toggle ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'light') {
+            htmlElement.classList.remove('dark');
+            themeIcon.className = 'fa-solid fa-sun text-lg text-amber-500';
+        } else {
+            htmlElement.classList.add('dark');
+            themeIcon.className = 'fa-solid fa-moon text-lg';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                themeIcon.className = 'fa-solid fa-sun text-lg text-amber-500';
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                themeIcon.className = 'fa-solid fa-moon text-lg';
+            }
+        });
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Animated Background Canvas ---
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let particles = [];
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        for (let i = 0; i < 60; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 1.5 + 0.5,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4
+            });
+        }
+
+        function animateBg() {
+            ctx.clearRect(0, 0, width, height);
+            const isDark = htmlElement.classList.contains('dark');
+            ctx.fillStyle = isDark ? 'rgba(59, 130, 246, 0.4)' : 'rgba(59, 130, 246, 0.2)';
+            ctx.strokeStyle = isDark ? 'rgba(59, 130, 246, 0.08)' : 'rgba(59, 130, 246, 0.05)';
+
+            particles.forEach((p, index) => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0) p.x = width;
+                if (p.x > width) p.x = 0;
+                if (p.y < 0) p.y = height;
+                if (p.y > height) p.y = 0;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                for (let j = index + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+
+            requestAnimationFrame(animateBg);
+        }
+        animateBg();
+
+        // --- Chatbot Widget Logic ---
+        const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatbotCloseBtn = document.getElementById('chatbot-close-btn');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const chatSendBtn = document.getElementById('chat-send-btn');
+
+        if (chatbotToggleBtn && chatbotWindow) {
+            chatbotToggleBtn.addEventListener('click', () => {
+                chatbotWindow.classList.toggle('hidden');
+            });
+        }
+
+        if (chatbotCloseBtn && chatbotWindow) {
+            chatbotCloseBtn.addEventListener('click', () => {
+                chatbotWindow.classList.add('hidden');
+            });
+        }
+
+        function appendMessage(sender, text) {
+            const isBot = sender === 'bot';
+            const msgDiv = document.createElement('div');
+            msgDiv.className = isBot ? 'flex items-start space-x-2' : 'flex items-start space-x-2 justify-end';
+            
+            if (isBot) {
+                msgDiv.innerHTML = `
+                    <div class="w-7 h-7 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-robot text-xs"></i>
+                    </div>
+                    <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-2xl rounded-tl-none text-slate-700 dark:text-slate-200 max-w-[80%]">
+                        ${text}
+                    </div>
+                `;
+            } else {
+                msgDiv.innerHTML = `
+                    <div class="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none max-w-[80%]">
+                        ${text}
+                    </div>
+                `;
+            }
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function handleUserMessage() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            appendMessage('user', text);
+            chatInput.value = '';
+
+            setTimeout(() => {
+                const lower = text.toLowerCase();
+                let reply = "That's a great question! Sanuji is currently focusing on her Data Science degree at SLTC.";
+                
+                if (lower.includes('name') || lower.includes('who')) {
+                    reply = "Her name is Sanuji Bihansa. She is a Data Science undergraduate at SLTC!";
+                } else if (lower.includes('education') || lower.includes('degree') || lower.includes('campus') || lower.includes('sltc')) {
+                    reply = "Sanuji passed A/Ls in the Physical Science stream, holds an Advanced Diploma in English, and is currently pursuing a BSc in Data Science at SLTC.";
+                } else if (lower.includes('interest') || lower.includes('field') || lower.includes('ml') || lower.includes('ai')) {
+                    reply = "Her key areas of interest are Machine Learning, AI, Data Analysis, Cloud Computing, and Business Analysis.";
+                } else if (lower.includes('contact') || lower.includes('email')) {
+                    reply = "You can reach her via email at bisanuji@gmail.com, or check her GitHub and LinkedIn profile!";
+                }
+                appendMessage('bot', reply);
+            }, 600);
+        }
+
+        if (chatSendBtn) {
+            chatSendBtn.addEventListener('click', handleUserMessage);
+        }
+        if (chatInput) {
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleUserMessage();
+            });
+        }
+    </script>
+   
+</body>
+</html>
